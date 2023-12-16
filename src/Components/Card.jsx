@@ -1,29 +1,31 @@
 import React from 'react';
 import styles from './Card.module.css';
 
-const Card = (props) => {
-  const { loading, error, data } = props;
-
+const Card = ({ loading, error, data }) => {
   return (
     <div className={styles.card}>
       <div className={styles.pokemonPhoto}>
         {loading ? (
-          'Loading...'
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         ) : (
           <img
-            src={data.sprites.other.dream_world.front_default}
+            src={data && data.sprites.other.dream_world.front_default}
             alt="Imagem do pokémon"
           />
         )}
       </div>
       <div className={styles.details}>
         <h1>
-          {data
-            ? data.name.toUpperCase()
-            : 'Ocorreu um erro ao carregar o nome'}
+          {data && data.name.toUpperCase()}
+          {error && 'Ocorreu um erro ao carregar o nome'}
         </h1>
         <ul>
-          {data ? (
+          {data &&
             data.abilities.map((eachSkill) => {
               return (
                 <li key={eachSkill.slot}>
@@ -34,10 +36,8 @@ const Card = (props) => {
                     )}
                 </li>
               );
-            })
-          ) : (
-            <li>Erro ao carregar as habilidades</li>
-          )}
+            })}
+          {error && error}
         </ul>
       </div>
     </div>
