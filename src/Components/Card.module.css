@@ -69,7 +69,7 @@
   }
 }
 
-@media(max-width: 860px) {
+@media (max-width: 860px) {
   .card {
     width: 300px;
     margin-left: 0;
