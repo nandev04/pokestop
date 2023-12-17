@@ -22,6 +22,19 @@ main {
   filter: drop-shadow(15px 15px 15px hsl(76deg 0% 0% /0.5));
 }
 
+.pokeball img:active {
+  animation: shake .1s;
+  animation-iteration-count: 200;
+}
+
+@keyframes shake {
+  0% {margin-left: 0;}
+  25% {margin-left: 10px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -10px;}
+  100% {margin-left: initial;}
+}
+
 @media (max-width: 860px) {
   main {
     margin: 0;
