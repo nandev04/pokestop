@@ -21,7 +21,7 @@ const Main = () => {
       // Fetch responsável por escolher e carregar os dados do pokémon
       if (response.ok) {
         json = await response.json();
-        const randomNumber = Math.trunc(Math.random() * 201);
+        const randomNumber = Math.trunc(Math.random() * 501);
         const urlPokemon = json.results[randomNumber].url;
         const responsePokemon = await fetch(urlPokemon);
         const jsonPokemon = await responsePokemon.json();
